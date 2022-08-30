@@ -1,0 +1,25 @@
+mode: set
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:8.35,10.29 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:10.29,11.20 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:13.20,14.24 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:16.52,17.31 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:19.37,20.38 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:22.29,23.32 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:25.11,26.22 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:31.41,38.21 4 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:38.21,41.3 2 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:44.31,50.21 3 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:50.21,52.3 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:55.33,60.21 3 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:60.21,62.3 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:65.40,69.22 2 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:73.2,73.21 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:77.2,80.21 2 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:69.22,71.3 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:73.21,75.3 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:80.21,82.3 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:85.48,87.2 0 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:89.32,91.22 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:91.22,93.3 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:96.34,98.23 1 1
+github.com/emilybache/gildedrose-refactoring-kata/gildedrose/gildedrose.go:98.23,100.3 1 1

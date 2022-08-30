@@ -6,53 +6,96 @@ type Item struct {
 }
 
 func UpdateQuality(items []*Item) {
-	for i := 0; i < len(items); i++ {
 
-		if items[i].Name != "Aged Brie" && items[i].Name != "Backstage passes to a TAFKAL80ETC concert" {
-			if items[i].Quality > 0 {
-				if items[i].Name != "Sulfuras, Hand of Ragnaros" {
-					items[i].Quality = items[i].Quality - 1
-				}
-			}
-		} else {
-			if items[i].Quality < 50 {
-				items[i].Quality = items[i].Quality + 1
-				if items[i].Name == "Backstage passes to a TAFKAL80ETC concert" {
-					if items[i].SellIn < 11 {
-						if items[i].Quality < 50 {
-							items[i].Quality = items[i].Quality + 1
-						}
-					}
-					if items[i].SellIn < 6 {
-						if items[i].Quality < 50 {
-							items[i].Quality = items[i].Quality + 1
-						}
-					}
-				}
-			}
-		}
+	for _, item := range items {
+		switch item.Name {
 
-		if items[i].Name != "Sulfuras, Hand of Ragnaros" {
-			items[i].SellIn = items[i].SellIn - 1
-		}
+		case "Aged Brie":
+			updateAgedBrie(item)
 
-		if items[i].SellIn < 0 {
-			if items[i].Name != "Aged Brie" {
-				if items[i].Name != "Backstage passes to a TAFKAL80ETC concert" {
-					if items[i].Quality > 0 {
-						if items[i].Name != "Sulfuras, Hand of Ragnaros" {
-							items[i].Quality = items[i].Quality - 1
-						}
-					}
-				} else {
-					items[i].Quality = items[i].Quality - items[i].Quality
-				}
-			} else {
-				if items[i].Quality < 50 {
-					items[i].Quality = items[i].Quality + 1
-				}
-			}
+		case "Backstage passes to a TAFKAL80ETC concert":
+			updateBackstagePasses(item)
+
+		case "Sulfuras, Hand of Ragnaros":
+			updateSulfurasHandOfRagnaros(item)
+
+		case "Conjured Mana Cake":
+			updateConjuredManaCake(item)
+
+		default:
+			updateNormal(item)
 		}
 	}
+}
 
+func updateConjuredManaCake(item *Item) {
+	// "Conjured" items degrade in Quality twice as fast as normal items
+	reduceQuality(item)
+	reduceQuality(item)
+
+	item.SellIn--
+
+	if item.SellIn < 0 {
+		reduceQuality(item)
+		reduceQuality(item)
+	}
+}
+
+func updateNormal(item *Item) {
+
+	reduceQuality(item)
+
+	item.SellIn--
+
+	if item.SellIn < 0 {
+		reduceQuality(item)
+	}
+}
+
+func updateAgedBrie(item *Item) {
+	increaseQuality(item)
+
+	item.SellIn--
+
+	if item.SellIn < 0 {
+		increaseQuality(item)
+	}
+}
+
+func updateBackstagePasses(item *Item) {
+	increaseQuality(item)
+
+	// Quality increases by 2 when there are 10 days or less
+	if item.SellIn < 11 {
+		increaseQuality(item)
+	}
+	// ... and by 3 when there are 5 days or less but
+	if item.SellIn < 6 {
+		increaseQuality(item)
+	}
+
+	item.SellIn--
+
+	// Quality drops to 0 after the concert
+	if item.SellIn < 0 {
+		item.Quality = 0
+	}
+}
+
+func updateSulfurasHandOfRagnaros(item *Item) {
+	// "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
+}
+
+func reduceQuality(item *Item) {
+	// The Quality of an item is never negative
+	if item.Quality > 0 {
+		item.Quality--
+	}
+}
+
+func increaseQuality(item *Item) {
+	// The Quality of an item is never more than 50
+	if item.Quality < 50 {
+		item.Quality++
+	}
 }
